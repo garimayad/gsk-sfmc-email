@@ -1,0 +1,26 @@
+// Set the request method to POST
+pm.test("Method is POST", function () {
+    pm.expect(pm.request.method).to.be.equal("POST");
+});
+
+// Set the endpoint for creating an email
+pm.test("Endpoint is correct", function () {
+    pm.expect(pm.request.url).to.be.equal("https://www.exacttargetapis.com/asset/v1/content/assets");
+});
+
+// Set the headers for the request
+pm.test("Headers are correct", function () {
+    pm.expect(pm.request.headers.get("Content-Type")).to.be.equal("application/json");
+    pm.expect(pm.request.headers.get("Authorization")).to.be.equal("Bearer YOUR_ACCESS_TOKEN");
+});
+
+// Set the body of the request to include the HTML for the email
+// as well as other necessary information, such as the email's name
+// and folder location.
+
+pm.test("Body is correct", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.content.html.text).to.equal("<p>Hello World</p>");
+    pm.expect(jsonData.name).to.equal("My Test Email");
+    pm.expect(jsonData.folderId).to.equal(123456);
+});
