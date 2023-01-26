@@ -1,0 +1,2318 @@
+%%[
+var @fullname
+var @COStateFlag
+var @degreeType
+var @LName
+Set @LName = Concat(ProperCase(LastName),",")
+set @fullname = Concat(ProperCase(Firstname)," ", ProperCase(LastName),",")
+set @degreeType = lookup('ENT.PROD_HCPMaster','degreeType','MDMID',CID)
+set @COStateFlag = COStateFlag
+]%%
+%%[
+Var @tracking_pixel
+Var @tracking_HoneyPot
+Set @tracking_pixel = Lookup("GSK_Tracking_Pixels","tracking_value","tracking_key","FRESH_ADDRESS",
+"tactic_code",@TacticCode)
+Set @tracking_HoneyPot = Lookup("GSK_Tracking_Pixels","tracking_value","tracking_key","HONEYPOT_PIXEL")
+]%%
+%%[
+var @Email_Subject_Line, @Email_Pre_Header, @TacticCode
+set @Email_Subject_Line = "Have SEA patients with frequent exacerbations in your practice?"
+set @Email_Pre_Header = "See how this targeted treatment can help."
+set @TacticCode = "NUC_20039_SFMC_NBX9_7_0_em"
+]%%
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>%%=TreatAsContent(@Email_Subject_Line)=%%</title>
+    
+<!-- this is a test email and making changes for version 1-0-1 -->
+    <!--[if gte mso 9]>
+<style>
+sup, sub { font-size: 100% !important; }
+</style>
+<![endif]-->
+    <!--[if gte mso 9]><xml>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+  <o:PixelsPerInch>96</o:PixelsPerInch>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+
+    <style type="text/css">
+        body {
+            width: 100% !important;
+            background: #f8f6f5;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0 auto !important;
+            color: #ffffff;
+            line-height: 1;
+            padding: 0px;
+
+        }
+
+        sup,
+        sub {
+            font-size: 70%;
+            line-height: 0;
+        }
+
+        #body_style {
+            width: 100% !important;
+            background: #D3D3D3;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0 auto;
+            color: #ffffff;
+            line-height: 1;
+        }
+
+        #MessageViewBody {
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+
+        #MessageWebViewDiv {
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+
+        .ExternalClass {
+            width: 100%;
+        }
+
+        .ExternalClass {
+            line-height: 100%;
+        }
+
+        .ExternalClass p {
+            line-height: 100%;
+        }
+
+        .ExternalClass span {
+            line-height: 100%;
+        }
+
+        .ExternalClass font {
+            line-height: 100%;
+        }
+
+        .ExternalClass td {
+            line-height: 100%;
+        }
+
+        .ExternalClass div {
+            line-height: 100%;
+        }
+
+        body {
+            -webkit-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+            margin: 0 !important;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            margin: 0;
+            padding: 0;
+        }
+
+        span {
+            margin: 0;
+            padding: 0;
+        }
+
+        strong {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            border-spacing: 0;
+        }
+
+        table td {
+            border-collapse: collapse;
+        }
+
+        table th {
+            border-collapse: collapse;
+        }
+
+        div {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        a {
+            text-decoration: none;
+            outline: none;
+        }
+
+        a[href^="tel"] {
+            text-decoration: none;
+            color: inherit !important;
+        }
+
+        a[href^="sms"] {
+            text-decoration: none;
+            color: inherit !important;
+        }
+
+        img {
+            display: block;
+            border: none;
+            outline: none;
+            text-decoration: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        .appleLinks {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .appleLinks a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        @media only screen and (max-width: 599px) {
+            .m_width {
+                width: 85% !important;
+            }
+
+            .m_sp {
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+            }
+
+            .col-100_1 {
+                width: 90% !important;
+                height: auto !important;
+                display: block !important;
+                float: none !important;
+                margin: 0 auto !important;
+            }
+
+            .col-100_2 {
+                padding: 5px 10px !important;
+            }
+
+            .m_cases {
+                padding-left: 0px !important;
+                padding-right: 0px !important;
+            }
+
+            .m_help {
+                padding: 10px 10px !important;
+                line-height: 24px !important;
+            }
+
+            .setPaddingtop {
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+                padding-bottom: 9px !important;
+            }
+
+            .secondaryarttxtbox {
+                padding-left: 0px !important;
+                padding-top: 10px !important;
+            }
+
+            .elastc {
+                width: 100% !important;
+            }
+
+            .res-content {
+                width: 100% !important;
+                height: auto !important;
+                display: block !important;
+                font-size: 14px !important;
+            }
+
+            .res-logo {
+                width: 100% !important;
+                height: auto !important;
+                display: block !important;
+            }
+
+            .res-header {
+                width: 60% !important;
+                height: auto !important;
+            }
+
+            .setalign {
+                text-align: left;
+            }
+
+            .person-block {
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            .elastic {
+                width: 100 !important;
+                margin: 0 auto;
+            }
+
+            table[class="Container"] {
+                width: 100% !important;
+            }
+
+            .hero_image img {
+                width: 100%;
+                height: auto !important;
+            }
+
+            .hideSpace {
+                display: none !important;
+            }
+
+            .gmail-fix {
+                display: none !important;
+            }
+
+            .col-90 {
+                width: 90% !important;
+                height: auto !important;
+            }
+
+            .col-80 {
+                width: 80% !important;
+                height: auto !important;
+            }
+
+            .col-70 {
+                width: 70% !important;
+                height: auto !important;
+            }
+
+            .col-60 {
+                width: 60% !important;
+                height: auto !important;
+            }
+
+            .col-50 {
+                width: 50% !important;
+                height: auto !important;
+            }
+
+            .col-40 {
+                width: 40% !important;
+                height: auto !important;
+            }
+
+            .col-30 {
+                width: 30% !important;
+                height: auto !important;
+            }
+
+            .col-20 {
+                width: 20% !important;
+                height: auto !important;
+            }
+
+            .col-10 {
+                width: 10% !important;
+                height: auto !important;
+            }
+
+            .fragment_image img {
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            .fragment .CTA-BTN {
+                width: 100% !important;
+                height: auto !important;
+            }
+
+            .fragment .Double-col table:nth-of-type(1) {
+                margin-right: 12px;
+            }
+
+            .fragment .Double-col table:first-child {
+                margin-right: 12px;
+            }
+
+            .img-pad {
+                padding-right: 0px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .padtop1 {
+                padding-top: 15px !important;
+            }
+
+            .m_align {
+                text-align: center !important;
+            }
+
+            .nosetpad {
+                padding-left: 0px !important;
+                padding-right: 0px !important;
+            }
+
+            .m_ipl {
+                padding-left: 0px !important;
+            }
+
+            .m_h1 {
+                height: 25px !important;
+            }
+
+            .m_5 {
+                height: 8px !important;
+            }
+
+            .m_12a {
+                height: 12px !important;
+            }
+
+            .m_30 {
+                height: 30px !important;
+            }
+
+            .m_40 {
+                height: 37px !important;
+            }
+
+            .m_10 {
+                padding-top: 10px !important;
+            }
+
+            .m_11 {
+                height: 12px !important;
+            }
+
+            .m_12 {
+                height: 20px !important;
+            }
+
+            .m_15 {
+                height: 15px !important;
+            }
+
+            .m_cont2 {
+                padding-top: 6px !important;
+            }
+
+            .m_strtm {
+                padding-top: 24px !important;
+            }
+
+            .m_wmmn {
+                padding-bottom: 0px !important;
+            }
+
+            .col-101 {
+                width: 100% !important;
+                display: block !important;
+            }
+
+            .m_report {
+                padding-top: 4px !important;
+            }
+
+            .m_admin {
+                padding-top: 22px !important;
+            }
+
+            td.m_center.m_bottomkj {
+                padding-bottom: 15px !important;
+            }
+
+            td.m_center.m_bottomkj1 {
+                padding-bottom: 35px !important;
+            }
+
+            th.blockSpace.m_bl {
+                height: 10px !important;
+            }
+
+            .m_offer {
+                height: 22px !important;
+            }
+
+            .m_full_width .mbp {
+                height: 6px !important;
+            }
+
+            .m_lrpad {
+                padding-right: 20px !important;
+                padding-left: 20px !important;
+            }
+
+            .m_lrpad-footer {
+                padding-right: 35px !important;
+                padding-left: 35px !important;
+            }
+
+            .m_p {
+                padding-right: 10px !important;
+                padding-left: 10px !important;
+            }
+
+            .m_p10 {
+                padding-right: 0px !important;
+                padding-left: 10px !important;
+            }
+
+            .m_p1 {
+                padding-right: 0px !important;
+            }
+
+            .m_155 {
+                width: 155px !important;
+            }
+
+            .m_h24 {
+                height: 15px !important;
+            }
+
+            .m_h24a {
+                height: 20px !important;
+            }
+
+            .m_h24b {
+                height: 20px !important;
+            }
+
+            td.mPad03.m_padding3 {
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+            }
+
+            .setp {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+                padding-top: 15px !important;
+            }
+
+            .m_CTA_45 {
+                border-width: 3px 0px 3px 0px !important;
+            }
+
+            .fluid-block .txtleft {
+                text-align: left !important;
+                padding-left: 0px !important;
+            }
+
+            .setPaddingblk2 {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+
+            .setPadding15 {
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+            }
+
+            .setPadding {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+
+            .setPadding0 {
+                padding-left: 20px !important;
+                padding-right: 0px !important;
+            }
+
+            .setPadding10 {
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+            }
+
+            .setPadding_0 {
+                padding-left: 0px !important;
+                padding-right: 0px !important;
+            }
+
+            .setPaddinghh {
+                padding: 25px 10px !important;
+            }
+
+            .m_check {
+                padding-bottom: 15px !important;
+            }
+
+            .m_center {
+                text-align: center !important;
+            }
+
+            .blockSpace {
+                width: 100% !important;
+                height: auto !important;
+                display: block !important;
+            }
+
+            .col-100 {
+                width: 100% !important;
+                height: auto !important;
+                display: block !important;
+                float: none !important;
+            }
+
+            .m_6_2 {
+                padding-top: 20px !important;
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                text-align: center !important;
+                line-height: 26px !important;
+            }
+
+            .hidden {
+                display: none !important;
+            }
+
+            .m_frag {
+                width: 100% !important;
+            }
+
+            .vis-mobile {
+                display: block !important;
+            }
+
+            .inv-on-mobile {
+                display: none !important;
+                mso-hide: all !important;
+                overflow: hidden !important;
+                max-height: 0 !important;
+                width: 0 !important;
+                line-height: 0 !important;
+            }
+
+            #padtop {
+                padding-top: 10px !important;
+            }
+
+            .setPad {
+                padding-bottom: 5px !important;
+                padding-right: 12px !important;
+                padding-left: 12px !important;
+                padding-top: 5px !important;
+            }
+
+            .img-pad {
+                padding-right: 0px;
+            }
+
+            .setPaddingtop {
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+            }
+
+            .setPheader {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+
+            .setPaddingblk3 {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+
+            .setPaddingblk4 {
+                padding-left: 50px !important;
+                padding-right: 50px !important;
+            }
+
+            .setPaddingblk5 {
+                padding-left: 70px !important;
+                padding-right: 70px !important;
+            }
+
+            .rempadding {
+                padding-right: 0px !important;
+                line-height: 20px !important;
+                font-size: 16px !important;
+            }
+
+            .logo_w {
+                width: 45px !important;
+            }
+
+            .redsie {
+                font-size: 12px !important;
+                line-height: 16px !important;
+            }
+
+            .f25 {
+                font-size: 25px !important;
+                line-height: 25px !important;
+            }
+
+            .redupadding {
+                padding: 0px 8px 20px 8px !important;
+            }
+
+            .redupaddingr {
+                padding: 0px 0px 20px 10px !important;
+            }
+
+            .remotop {
+                padding-top: 0px !important;
+            }
+
+            .col-90 {
+                width: 100% !important;
+                height: auto !important;
+                display: block !important;
+            }
+
+            .col-80 {
+                width: 100% !important;
+                height: auto !important;
+                display: block !important;
+            }
+
+            .col-70 {
+                width: 100% !important;
+                height: auto !important;
+                display: block !important;
+            }
+
+            .col-60 {
+                width: 100% !important;
+                height: auto !important;
+                display: block !important;
+            }
+
+            .col-50 {
+                width: 100% !important;
+                height: auto !important;
+                display: block !important;
+            }
+
+            .col-40 {
+                width: 100% !important;
+                height: auto !important;
+                display: block !important;
+            }
+
+            .col-30 {
+                width: 100% !important;
+                height: auto !important;
+                display: block !important;
+            }
+
+            .col-20 {
+                width: 100% !important;
+                height: auto !important;
+                display: block !important;
+            }
+
+            .col-10 {
+                width: 100% !important;
+                height: auto !important;
+                display: block !important;
+            }
+
+            .Double-col table:nth-of-type(1) {
+                margin-bottom: 12px !important;
+                margin-right: 0px !important;
+            }
+
+            .fragment .Double-col table:first-child {
+                margin-bottom: 12px !important;
+                margin-right: 0px !important;
+            }
+
+            .fluid {
+                width: 100% !important;
+                min-width: 0px !important;
+                padding-top: 0px;
+            }
+
+            .fluid-block {
+                width: 100% !important;
+                display: block !important;
+            }
+
+            .fluid-block3 {
+                width: 100% !important;
+                display: block !important;
+                padding-top: 12px;
+            }
+
+            .fluid-block1 {
+                width: 100% !important;
+                display: block !important;
+                padding-top: 12px;
+                padding-right: 0px;
+                padding-left: 60px;
+                vertical-align: middle;
+            }
+
+            .fluid1 {
+                width: 80% !important;
+                min-width: 0px !important;
+                padding-top: 5px;
+                padding-left: 100px;
+            }
+
+            .apply_padding {
+                padding-top: 10px !important;
+                padding-bottom: 10px !important;
+            }
+
+            .elastic {
+                width: 100% !important;
+                height: auto !important;
+                margin: auto;
+            }
+
+            .elastic-img {
+                width: 80% !important;
+                height: auto !important;
+                margin: 0 auto;
+            }
+
+            .setPad {
+                padding-bottom: 10px;
+                padding-right: 12px;
+                padding-left: 12px;
+                padding-top: 10px;
+            }
+        }
+
+        @media only screen and (max-width: 380px) {
+            .m_img {
+                width: 130px !important;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .full-width-mobile {
+                width: 100% !important;
+                display: block !important;
+                text-align: left !important;
+            }
+
+            .col-101 {
+                width: 100% !important;
+                display: block !important;
+                text-align: center !important;
+            }
+
+            .m_wd {
+                width: 71% !important;
+            }
+
+            .m_wd1 {
+                width: 62% !important;
+            }
+
+            .m_b {
+                width: 22px !important;
+            }
+
+            .reduce_2 {
+                width: 97% !important;
+            }
+
+            .reduce_3 {
+                width: 1% !important;
+                padding-right: 5px !important;
+            }
+
+            .m_align {
+                text-align: center !important;
+            }
+
+            .setpad_10 {
+                padding-right: 0px !important;
+                padding-left: 10px !important;
+            }
+
+            .m_h {
+                height: 10px !important;
+            }
+
+            .m_0 {
+                padding-right: 0px !important;
+                padding-left: 0px !important;
+            }
+
+            .full-width-mobile1 {
+                width: 100% !important;
+                display: block !important;
+            }
+
+            .hide-in-mobile {
+                display: none !important;
+            }
+
+            .show-in-mobile {
+                display: block !important;
+            }
+        }
+
+        .show-in-mobile {
+            display: none;
+        }
+    </style> 
+</head>
+
+<body bgcolor="#f8f6f5" text="#464646" id="MessageViewBody"
+    style="background-color:#f8f6f5;color:#464646;font-family:Arial, Helvetica, sans-serif; font-size:14px; background-image:none; background-repeat:repeat; background-position:top left; background-attachment:scroll; width:100% !important; -ms-text-size-adjust:none; -webkit-text-size-adjust:none; -webkit-font-smoothing:antialiased; margin: 0 auto; padding: 0;">
+    <div style="display: none; max-height: 0px; overflow: hidden;">
+        &#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;
+    </div>
+
+    <center style="width: 100%; background:#f8f6f5; text-align: left;">
+        <!--[if mso | IE]>
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#f8f6f5">
+        <tr>
+        <td>
+        <![endif]-->
+        <table align="center" width="100" cellpadding="0" cellspacing="0" border="0" bgcolor="#f8f6f5" class="fluid"
+            style="border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;margin: 0 auto;mso-cellspacing: 0px; mso-padding-alt: 0px 0px 0px 0px;">
+            <tbody>
+
+                <tr>
+                    <td width="600" align="center" class="fluid" style="border-collapse:collapse; min-width:600px;">
+                        <!-- Main Wrapper -->
+                        <!-- HoneyPot Pixel -->
+                        %%=v(@tracking_HoneyPot)=%%
+                        <table class="appleLinks" align="center" id="MessageWebViewDiv" cellpadding="0" cellspacing="0"
+                            border="0" bgcolor="#ffffff"
+                            style="border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt; margin: 0 auto;">
+                            <!-- Header Bar -->
+                            <tbody>
+
+                                <tr>
+                                    <td class="mPad03 m_padding_m" align="left" valign="top" bgcolor="#ffffff"
+                                        style="background-color:#ffffff;">
+                                        <table bgcolor="#ffffff" align="left" class="responsiveMode" cellpadding="0"
+                                            cellspacing="0" border="0" width="100%">
+                                            <tbody>
+
+
+                                                <tr>
+                                                    <td class="setPaddingblk3" align="right" valign="top"
+                                                        style="padding: 0px 25px 0px 25px;background-color:#F5F5F5;">
+                                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td bgcolor="#F5F5F5"
+                                                                        style="font-size:1px; line-height:1px;"
+                                                                        height="15px">&nbsp;</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td align="right" valign="middle"
+                                                                        style="font-family:Arial,Helvetica,sans-serif;font-size:12px; font-weight:normal; color:#333333; line-height:16px;text-align:right;">
+                                                                        View <a
+                                                                            href="https://gskpro.com/content/dam/global/hcpportal/en_US/Prescribing_Information/Nucala/pdf/NUCALA-PI-PIL-IFU-COMBINED.PDF?cc=em_UBSXKIUE3F1517603&mcm=20039&cid=%%CID%%"
+                                                                            target="_blank"
+                                                                            style="color:#810C16;"><u>Prescribing
+                                                                                Information</u></a> and <a href="#below"
+                                                                            style="color:#810C16; text-decoration:none;"><u>Important
+                                                                                Safety Information</u></a></td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td class="m_5" bgcolor="#F5F5F5"
+                                                                        style="font-size:1px; line-height:1px;"
+                                                                        height="3">&nbsp;</td>
+                                                                </tr>
+
+                                                                <tr> %%[ if _messageContext!='VAWP' then ]%%
+                                                                    <td align="right" valign="middle"
+                                                                        style="font-family:Arial,Helvetica,sans-serif;font-size:12px; font-weight:normal;color: #810C16;line-height:16px;text-align:right;">
+                                                                        <a href="%%view_email_url%%" target="_blank"
+                                                                            style="color:#810C16;"><u>B&#65279;r&#65279;o&#65279;w&#65279;s&#65279;e&#65279;r
+                                                                                V&#65279;e&#65279;r&#65279;s&#65279;i&#65279;o&#65279;n</u></a>
+                                                                    </td>%%[ endif ]%%
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td class="m_12a" bgcolor="#F5F5F5"
+                                                                        style="font-size:1px; line-height:1px;"
+                                                                        height="10">&nbsp;</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="setPaddingblk3" align="left" valign="top"
+                                                        style="padding: 0px 25px 0px 25px;background-color:#F5F5F5;">
+                                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td align="left" valign="middle"
+                                                                        style="font-family:Arial,Helvetica,sans-serif;font-size:9px; font-weight:normal;color: #333333;line-height:16px;text-align:left;">
+                                                                        This email is funded and developed by GSK.</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td bgcolor="#F5F5F5"
+                                                                        style="font-size:1px; line-height:1px;"
+                                                                        height="15">&nbsp;</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td align="left" valign="middle"
+                                                                        style="font-family:Arial,Helvetica,sans-serif;font-size:12px; font-weight:normal;color: #333333;line-height:17px;text-align:left;">
+                                                                        NUCALA (mepolizumab) is indicated for the add-on
+                                                                        maintenance treatment of adult and pediatric
+                                                                        patients aged 6 years and older with severe
+                                                                        asthma and with an eosinophilic phenotype.
+                                                                        NUCALA is not indicated for the relief of acute
+                                                                        bronchospasm or status asthmaticus.</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td bgcolor="#F5F5F5"
+                                                                        style="font-size:1px; line-height:1px;"
+                                                                        height="18">&nbsp;</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td align="left" valign="top" style="background: #ffffff;">
+                                        <table class="inv-on-mobile" width="100%" cellpadding="0" cellspacing="0"
+                                            align="left">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="600" align="left" valign="top" class="fluid"
+                                                        style="border-collapse:collapse;"><a
+                                                            href="https://nucalahcp.com/severe-eosinophilic-asthma/patient-types/?cc=em_JFXWJFSGXS1517604&mcm=20039&cid=%%CID%%"
+                                                            target="_blank"><img
+                                                                src="https://a-cf65.gskstatic.com/content/dam/campaigns/pharma/us/mass/24778460/dsk_600_2x_01.jpg"
+                                                                alt="DO YOU HAVE SEA PATIENTS WITH FREQUENT EXACERBATIONS?"
+                                                                width="600"
+                                                                style="display: inline-block;width: 600px;"></a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!--[if !mso]><!-->
+                                        <div style="display:none;" class="vis-mobile">
+                                            <table width="100%" cellpadding="0" cellspacing="0" align="left">
+                                                <tbody>
+                                                    <tr>
+                                                        <td width="100%" align="left" valign="top" class="fluid"
+                                                            style="border-collapse:collapse;"><a
+                                                                href="https://nucalahcp.com/severe-eosinophilic-asthma/patient-types/?cc=em_JFXWJFSGXS1517604&mcm=20039&cid=%%CID%%"
+                                                                target="_blank"><img
+                                                                    src="https://a-cf65.gskstatic.com/content/dam/campaigns/pharma/us/mass/24778460/mbl_425_2x_01.jpg"
+                                                                    alt="DO YOU HAVE SEA PATIENTS WITH FREQUENT EXACERBATIONS?"
+                                                                    width="100%" style="display: inline-block;"
+                                                                    class="elastic"></a></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!--<![endif]-->
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="setPaddingblk3" align="center" bgcolor="#ffffff"
+                                        style="padding-left:25px;padding-right:25px;">
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tbody>
+
+                                                <tr>
+                                                    <td style="font-size:25px">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left"
+                                                        style="color:#4F4F4F;font-family:Arial,Helvetica,sans-serif;font-weight:bold;text-align:left;">
+                                                        <font style="color:#4F4F4F;font-size:16px;line-height:18px;">
+                                                            %%=IIF(NOT EMPTY(LastName) AND (@degreeType == "MD" OR
+                                                            @degreeType == "DO"), concat("Dear Dr."," ",@LName), IIF(NOT
+                                                            EMPTY(FirstName) AND NOT EMPTY(LastName) AND (@degreeType ==
+                                                            "NP" OR @degreeType == "PA"), concat("Dear ",@fullname,"
+                                                            ",@degreeType,","), 'Dear Healthcare Provider,'))=%%</font>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-size:20px">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left"
+                                                        style="color:#4F4F4F;font-family:Arial,Helvetica,sans-serif;font-weight:normal;text-align:left;font-size:16px;line-height: 19px;">
+                                                        Do you have SEA patients like Gabrielle who experience frequent
+                                                        exacerbations?</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td bgcolor="#ffffff" style="font-size:1px; line-height:1px;"
+                                                        height="22">&nbsp;</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left"
+                                                        style="color:#D13239;font-family:Arial,Helvetica,sans-serif;font-weight:bold;text-align:left;font-size:12px;line-height: 16px;border-bottom:1px solid #e1cdd0;padding-bottom:5px;">
+                                                        PATIENT PROFILE</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td style="font-size:10px">&nbsp;</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left"
+                                                        style="color:#4F4F4F;font-family:Arial,Helvetica,sans-serif;font-weight:bold;text-align:left;font-size:26px;line-height: 30px;">
+                                                        Severe eosinophilic asthma with frequent&nbsp;exacerbations</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="m_h1" style="font-size:10px">&nbsp;</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left" valign="top" style="background: #ffffff;">
+                                                        <table class="inv-on-mobile" width="100%" cellpadding="0"
+                                                            cellspacing="0" align="left">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td width="550" align="left" valign="top"
+                                                                        class="fluid" style="border-collapse:collapse;">
+                                                                        <img src="https://a-cf65.gskstatic.com/content/dam/campaigns/pharma/us/mass/24778460/dsk_550_2x_01.jpg"
+                                                                            alt="GABRIELLE Age 45 years, food truck owner"
+                                                                            width="550"
+                                                                            style="display: inline-block;width:550px;">
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <!--[if !mso]><!-->
+                                                        <div style="display:none;" class="vis-mobile">
+                                                            <table width="100%" cellpadding="0" cellspacing="0"
+                                                                align="left">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td width="100%" align="left" valign="top"
+                                                                            class="fluid"
+                                                                            style="border-collapse:collapse;"><img
+                                                                                src="https://a-cf65.gskstatic.com/content/dam/campaigns/pharma/us/mass/24778460/mbl_377_2x.jpg"
+                                                                                alt="GABRIELLE Age 45 years, food truck owner"
+                                                                                width="100%"
+                                                                                style="display: inline-block;"
+                                                                                class="elastic"></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <!--<![endif]-->
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td style="font-size:8px">&nbsp;</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="right"
+                                                        style="color:#4F4F4F;font-family:Arial,Helvetica,sans-serif;font-weight:normal;text-align:right;font-size:12px; line-height:16px;">
+                                                        Hypothetical patient.</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="m_15" style="font-size:10px">&nbsp;</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left"
+                                                        style="color:#4F4F4F;font-family:Arial,Helvetica,sans-serif;font-weight:bold;text-align:left;font-size:20px; line-height:23px;">
+                                                        Reason for visit:</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td style="font-size:10px">&nbsp;</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left"
+                                                        style="color:#4F4F4F;font-family:Arial,Helvetica,sans-serif;font-weight:normal;text-align:left;font-size:16px; line-height:20px;">
+                                                        Follow-up after OCS burst for asthma exacerbation due to the
+                                                        common cold</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td style="font-size:15px">&nbsp;</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left"
+                                                        style="color:#4F4F4F;font-family:Arial,Helvetica,sans-serif;font-weight:bold;text-align:left;font-size:20px; line-height:23px;">
+                                                        Complaints:</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td style="font-size:10px">&nbsp;</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left" valign="top">
+                                                        <table cellpadding="0" cellspacing="0" border="0">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td align="left" valign="top" width="8"
+                                                                        style="padding-right: 4px; font-family: Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;font-weight:normal; width:2%;">
+                                                                        &bull;</td>
+                                                                    <td align="left" valign="top"
+                                                                        style="font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;">
+                                                                        Frequent asthma symptoms waking her up late at
+                                                                        night/early morning
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="left" valign="top" width="8"
+                                                                        style="padding-right: 4px; font-family: Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;font-weight:normal; width:2%;">
+                                                                        &bull;</td>
+                                                                    <td align="left" valign="top"
+                                                                        style="font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;">
+                                                                        2 visits to the ED/urgent care requiring OCS
+                                                                        bursts for nocturnal asthma attacks that did not
+                                                                        improve with rescue inhaler
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="left" valign="top" width="8"
+                                                                        style="padding-right: 4px; font-family: Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;font-weight:normal; width:2%;">
+                                                                        &bull;</td>
+                                                                    <td align="left" valign="top"
+                                                                        style="font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;">
+                                                                        Increased use of rescue inhaler
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="left" valign="top" width="8"
+                                                                        style="padding-right:4px; font-family: Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;font-weight:normal; width:2%;">
+                                                                        &bull;</td>
+                                                                    <td align="left" valign="top"
+                                                                        style="font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;">
+                                                                        Symptoms limiting exercise and social activity
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td bgcolor="#ffffff" style="font-size:1px; line-height:1px;"
+                                                        height="22">&nbsp;</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td bgcolor="#ffffff">
+                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                                            bgcolor="#ffffff">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th class="col-101" align="left" valign="middle"
+                                                                        style="background-color:#ffffff; width:265px;">
+                                                                        <table align="left" cellpadding="0"
+                                                                            cellspacing="0" border="0" bgcolor="#ffffff"
+                                                                            style="border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                                                                            <tbody>
+
+                                                                                <tr>
+                                                                                    <td align="left"
+                                                                                        style="color:#4F4F4F;font-family:Arial,Helvetica,sans-serif;font-weight:bold;text-align:left; font-size:20px; line-height:23px;">
+                                                                                        Medical history:</td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                    <td style="font-size:1px; line-height:1px;"
+                                                                                        height="12">&nbsp;</td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                    <td align="left" valign="top">
+                                                                                        <table cellpadding="0"
+                                                                                            cellspacing="0" border="0">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td align="left"
+                                                                                                        valign="top"
+                                                                                                        width="8"
+                                                                                                        style="padding-right:4px; font-family: Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;font-weight:normal; width:2%;">
+                                                                                                        &bull;</td>
+                                                                                                    <td align="left"
+                                                                                                        valign="top"
+                                                                                                        style="font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;font-weight:normal;">
+                                                                                                        Asthma duration:
+                                                                                                        25 years
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td align="left"
+                                                                                                        valign="top"
+                                                                                                        width="8"
+                                                                                                        style="padding-right: 4px; font-family: Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;font-weight:normal; width:2%;padding-top:2px;">
+                                                                                                        &bull;</td>
+                                                                                                    <td align="left"
+                                                                                                        valign="top"
+                                                                                                        style="font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;padding-top:2px;font-weight:normal;">
+                                                                                                        Atopic status:
+                                                                                                        positive (prior
+                                                                                                        SCIT)
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td align="left"
+                                                                                                        valign="top"
+                                                                                                        width="8"
+                                                                                                        style="padding-right:4px; font-family: Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;font-weight:normal; width:2%;padding-top:2px;">
+                                                                                                        &bull;</td>
+                                                                                                    <td align="left"
+                                                                                                        valign="top"
+                                                                                                        style="font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;padding-top:2px;font-weight:normal;">
+                                                                                                        Allergic
+                                                                                                        rhinitis
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                    <td style="font-size:1px; line-height:1px;"
+                                                                                        height="15">&nbsp;</td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                    <td align="left"
+                                                                                        style="color:#4F4F4F;font-family:Arial,Helvetica,sans-serif;font-weight:bold;text-align:left; font-size:20px; line-height:23px;">
+                                                                                        Current asthma medications:</td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                    <td style="font-size:1px; line-height:1px;"
+                                                                                        height="12">&nbsp;</td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                    <td align="left" valign="top">
+                                                                                        <table cellpadding="0"
+                                                                                            cellspacing="0" border="0">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td align="left"
+                                                                                                        valign="top"
+                                                                                                        width="8"
+                                                                                                        style="padding-right:4px; font-family: Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;font-weight:normal; width:2%;">
+                                                                                                        &bull;</td>
+                                                                                                    <td align="left"
+                                                                                                        valign="top"
+                                                                                                        style="font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;font-weight:normal;">
+                                                                                                        High-dose
+                                                                                                        ICS/LABA (15
+                                                                                                        years)
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td align="left"
+                                                                                                        valign="top"
+                                                                                                        width="8"
+                                                                                                        style="padding-right:4px; font-family: Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;font-weight:normal; width:2%;padding-top:2px;">
+                                                                                                        &bull;</td>
+                                                                                                    <td align="left"
+                                                                                                        valign="top"
+                                                                                                        style="font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;padding-top:2px;font-weight:normal;">
+                                                                                                        Albuterol as
+                                                                                                        needed
+                                                                                                        (currently
+                                                                                                        averaging 6
+                                                                                                        puffs/day)
+
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </td>
+                                                                                </tr>
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </th>
+
+                                                                    <th class="col-101" width="20" align="left"
+                                                                        valign="top">&nbsp;</th>
+
+                                                                    <th class="col-101" align="left" valign="top"
+                                                                        style="background-color:#ffffff;width:265px;">
+                                                                        <table align="left" cellpadding="0"
+                                                                            cellspacing="0" border="0" bgcolor="#ffffff"
+                                                                            style="border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+                                                                            <tbody>
+
+                                                                                <tr>
+                                                                                    <td align="left"
+                                                                                        style="color:#4F4F4F;font-family:Arial,Helvetica,sans-serif;font-weight:bold;text-align:left; font-size:20px; line-height:23px;">
+                                                                                        Spirometry results:</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="font-size:1px; line-height:1px;"
+                                                                                        height="12">&nbsp;</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td align="left" valign="top">
+                                                                                        <table cellpadding="0"
+                                                                                            cellspacing="0" border="0">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td align="left"
+                                                                                                        valign="top"
+                                                                                                        width="8"
+                                                                                                        style="padding-right:4px; font-family: Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;font-weight:normal; width:2%;">
+                                                                                                        &bull;</td>
+                                                                                                    <td align="left"
+                                                                                                        valign="top"
+                                                                                                        style="font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;font-weight:normal;">
+                                                                                                        FEV<sub>1</sub>
+                                                                                                        58% predicted
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td align="left"
+                                                                                                        valign="top"
+                                                                                                        width="8"
+                                                                                                        style="padding-right:4px; font-family: Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;font-weight:normal; width:2%;padding-top:2px;">
+                                                                                                        &bull;</td>
+                                                                                                    <td align="left"
+                                                                                                        valign="top"
+                                                                                                        style="font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;padding-top:2px;font-weight:normal;">
+                                                                                                        FEV<sub>1</sub>/FVC
+                                                                                                        ratio: 0.67
+                                                                                                    </td>
+                                                                                                </tr>
+
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                    <td style="font-size:1px; line-height:1px;"
+                                                                                        height="20">&nbsp;</td>
+                                                                                </tr>
+
+                                                                                <tr>
+                                                                                    <td align="left"
+                                                                                        style="color:#4F4F4F;font-family:Arial,Helvetica,sans-serif;font-weight:bold;text-align:left; font-size:20px; line-height:23px;">
+                                                                                        Laboratory results:</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="font-size:1px; line-height:1px;"
+                                                                                        height="12">&nbsp;</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td align="left" valign="top">
+                                                                                        <table cellpadding="0"
+                                                                                            cellspacing="0" border="0">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td align="left"
+                                                                                                        valign="top"
+                                                                                                        width="8"
+                                                                                                        style="padding-right:4px; font-family: Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;font-weight:normal; width:2%;">
+                                                                                                        &bull;</td>
+                                                                                                    <td align="left"
+                                                                                                        valign="top"
+                                                                                                        style="font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;font-weight:normal;">
+                                                                                                        Eosinophil
+                                                                                                        count: 275
+                                                                                                        cells/μL
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td align="left"
+                                                                                                        valign="top"
+                                                                                                        width="8"
+                                                                                                        style="padding-right:4px; font-family: Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;font-weight:normal; width:2%;padding-top:2px;">
+                                                                                                        &bull;</td>
+                                                                                                    <td align="left"
+                                                                                                        valign="top"
+                                                                                                        style="font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#4F4F4F; line-height:20px;padding-top:2px;font-weight:normal;">
+                                                                                                        IgE
+                                                                                                        concentration:
+                                                                                                        130 kU/L
+                                                                                                    </td>
+                                                                                                </tr>
+
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </td>
+                                                                                </tr>
+
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </th>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="m_30" bgcolor="#ffffff" style="font-size:1px; line-height:1px;" height="27">&nbsp;</td>
+                </tr>
+
+                <tr>
+                    <td class="setPaddingblk3" align="left" bgcolor="#ffffff"
+                        style="padding-left:25px; padding-right:25px;">
+                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                            <tbody>
+                                <tr>
+                                    <td
+                                        style="font-family: Arial, Helvetica, sans-serif;font-size:14px;font-weight: bold;color:#690813;line-height:19px;">
+                                        IMPORTANT SAFETY INFORMATION
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td
+                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;font-weight: bold;color:#690813;line-height:16px;">
+                                        CONTRAINDICATIONS
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td
+                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;font-weight:normal;color:#333333;line-height:16px;">
+                                        NUCALA should not be administered to patients with a history of hypersensitivity
+                                        to mepolizumab or excipients in the formulation.
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td
+                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;font-weight:normal;color:#333333;line-height:16px;">
+                                        See below for full Important Safety Information.
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="m_40" style="font-size:1px; line-height:1px;" height="30">&nbsp;</td>
+                                </tr>
+
+                                <tr>
+                                    <td align="center" valign="top" style="border-collapse:collapse;"><a
+                                            href="https://nucalahcp.com/severe-eosinophilic-asthma/efficacy/exacerbations/?cc=em_QEMCWK7UBL1517605&mcm=20039&cid=%%CID%%"
+                                            target="_blank"><img width="300" border="0"
+                                                src="https://a-cf65.gskstatic.com/content/dam/campaigns/pharma/us/mass/24778460/cta_280_2x_01.png"
+                                                alt="See exacerbation reduction DATA"
+                                                style="display:inline-block;outline-style:none;text-decoration:none;-ms-interpolation-mode:bicubic;border-style:none;width:300px;"></a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td bgcolor="#ffffff" style="font-size:1px; line-height:1px;" height="30">&nbsp;</td>
+                </tr>
+
+                <tr>
+                    <td class="setPaddingblk3" align="left" bgcolor="#F5F5F5"
+                        style="padding-left:25px; padding-right:25px;">
+                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                            <tbody>
+
+                                <tr>
+                                    <td style="font-size:1px; line-height:1px;" height="27">&nbsp;</td>
+                                </tr>
+
+                                <tr>
+                                    <td
+                                        style="font-family: Arial, Helvetica, sans-serif;font-size:26px;font-weight: bold;color:#4F4F4F;line-height:30px;">
+                                        Do they remind you of SEA patients in your&nbsp;practice?
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size:1px; line-height:1px;" height="20">&nbsp;</td>
+                                </tr>
+
+                                <tr>
+                                    <td align="left" valign="top" style="background: #ffffff;">
+                                        <table class="inv-on-mobile" width="100%" cellpadding="0" cellspacing="0"
+                                            align="left">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="550" align="left" valign="top" class="fluid"
+                                                        style="border-collapse:collapse;"><img
+                                                            src="https://a-cf65.gskstatic.com/content/dam/campaigns/pharma/us/mass/24778460/dsk_550_2x_02.jpg"
+                                                            alt="Do they remind you of SEA patients in your practice?"
+                                                            width="550" style="display: inline-block;width:550px;"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!--[if !mso]><!-->
+                                        <div style="display:none;" class="vis-mobile">
+                                            <table width="100%" cellpadding="0" cellspacing="0" align="left">
+                                                <tbody>
+                                                    <tr>
+                                                        <td width="100%" align="left" valign="top" class="fluid"
+                                                            style="border-collapse:collapse;"><img
+                                                                src="https://a-cf65.gskstatic.com/content/dam/campaigns/pharma/us/mass/24778460/mbl_377_2x_03.jpg"
+                                                                alt="Do they remind you of SEA patients in your practice?"
+                                                                width="100%" style="display: inline-block;"
+                                                                class="elastic"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!--<![endif]-->
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size:1px; line-height:1px;" height="20">&nbsp;</td>
+                                </tr>
+
+                                <tr>
+                                    <td
+                                        style="font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:normal;color:#4F4F4F;line-height:16px;text-align:center;">
+                                        Hypothetical patients.
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="font-size:1px; line-height:1px;" height="27">&nbsp;</td>
+                                </tr>
+
+                                <tr>
+                                    <td align="center" valign="top" style="border-collapse:collapse;"><a
+                                            href="https://nucalahcp.com/severe-eosinophilic-asthma/patient-types/?cc=em_AOCYSUIVSV1517606&mcm=20039&cid=%%CID%%"
+                                            target="_blank"><img width="300" border="0"
+                                                src="https://a-cf65.gskstatic.com/content/dam/campaigns/pharma/us/mass/24778460/cta_280_2x_02.png"
+                                                alt="Explore SEA patient types"
+                                                style="display:inline-block;outline-style:none;text-decoration:none; -ms-interpolation-mode:bicubic;border-style:none;width:300px;"></a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="m_40" style="font-size:1px; line-height:1px;" height="22">&nbsp;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="m_11" bgcolor="#ffffff" style="font-size:1px; line-height:1px;" height="25">&nbsp;</td>
+                </tr>
+
+                <tr>
+                    <td class="m_p10" style="background-color:#FFFFFF; padding:0px 0px 0px 25px;" align="center"
+                        valign="top">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td bgcolor="#810C16"
+                                    style="color:#464646; font-family: Arial, Helvetica, sans-serif; font-size: 14px; line-height:18px; font-weight:normal; padding-bottom:0px;"
+                                    align="left" valign="top">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#810C16">
+                                        <tr>
+                                            <td bgcolor="#810C16" width="2%"
+                                                style="color:#464646; font-family: Arial, Helvetica, sans-serif; font-size:15px; line-height:22px; font-weight:normal; padding-bottom: 5px; padding-right:10px; padding-top:22px;"
+                                                align="left" valign="top">&nbsp;&nbsp;</td>
+                                            <td class="reduce_2" bgcolor="#810C16" width="95%"
+                                                style="color:#ffffff; font-family: Arial, Helvetica, sans-serif; font-size:15px; line-height:22px; font-weight:normal; padding-bottom:15px; padding-right:10px; padding-top:22px; border-bottom:2px solid #DE2531;"
+                                                align="left" valign="top"><a
+                                                    href="https://nucalahcp.com/severe-eosinophilic-asthma/patient-types/?cc=em_PBGZT0XJRB1517607&mcm=20039&cid=%%CID%%"
+                                                    target="_blank" style="text-decoration:none;color:#ffffff;"><b>HELP
+                                                        YOUR SEA PATIENTS WITH FREQUENT EXACERBATIONS</b></a></td>
+                                            <td class="reduce_3" bgcolor="#ffffff" width="3%"
+                                                style="color:#464646; font-family: Arial, Helvetica, sans-serif; font-size:15px; line-height:22px; font-weight:normal; padding-bottom: 5px; padding-right:10px; padding-top:22px; border-bottom:2px solid #DE2531;"
+                                                align="left" valign="top"><span class="hidden">&nbsp;</span>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#810C16" width="2%"
+                                                style="color:#464646; font-family: Arial, Helvetica, sans-serif; font-size:14px; line-height:18px; font-weight:normal; padding-bottom:13px; padding-right:10px; padding-top:15px;"
+                                                align="left" valign="top">&nbsp;</td>
+                                            <td class="reduce_2" bgcolor="#810C16" width="95%"
+                                                style="color:#464646; font-family: Arial, Helvetica, sans-serif; font-size:14px; line-height:18px; font-weight:normal; padding-bottom: 10px; padding-right:10px; padding-top:5px;"
+                                                align="left" valign="top">
+                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td align="left" valign="top"
+                                                            style="font-family: Arial, Helvetica, sans-serif; line-height:20px; font-size:14px; color:#464646;">
+                                                            <!--[if mso]>
+  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://nucalahcp.com/severe-eosinophilic-asthma/patient-types/?cc=em_PBGZT0XJRB1517607&mcm=20039&cid=%%CID%%" style="height:30pt; v-text-anchor:middle; width:195pt;" arcsize="0%" stroke="f" fillcolor="#810C16" target="_blank">
+  <w:anchorlock/>
+  <center style="color:#ffffff; font-family:Arial,Helvetica,sans-serif; font-size:14px; font-weight:bold; vertical-align:middle;">
+  <img width="260" height="39" border="0" src="https://a-cf65.gskstatic.com/content/dam/campaigns/pharma/us/mass/24778460/cta01_new.jpg" alt="Join forces with NUCALA" style="display:inline-block; outline-style:none; text-decoration:none; border-style:none; -ms-interpolation-mode: bicubic;  vertical-align: middle; background-color: #810C16;">
+  </center>
+  </v:roundrect>
+  <![endif]-->
+                                                            <!--[if !mso]> <!-->
+                                                            <table cellpadding="0" cellspacing="0" border="0"
+                                                                bgcolor="#810C16"
+                                                                style="border-collapse: separate; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td width="100%" align="left" valign="top"
+                                                                            bgcolor="#810C16" style="padding:0px;">
+                                                                            <table cellpadding="0" cellspacing="0"
+                                                                                border="0" bgcolor="#810C16"
+                                                                                style="border-collapse: separate; mso-table-lspace:0pt; mso-table-rspace: 0pt;">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td width="100%" align="left"
+                                                                                            valign="middle"
+                                                                                            bgcolor="#810C16"
+                                                                                            style="padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px;line-height:0px;border-collapse:collapse;">
+                                                                                            <a href="https://nucalahcp.com/severe-eosinophilic-asthma/patient-types/?cc=em_PBGZT0XJRB1517607&mcm=20039&cid=%%CID%%"
+                                                                                                target="_blank"
+                                                                                                style="text-decoration:none; display:block;"><span
+                                                                                                    style="display:table; background-color:#810C16;border-collapse: separate; border-style: solid; border-color:#810C16; border-width:2px 1px 2px 0px;">
+                                                                                                    <span
+                                                                                                        style="display:table-row-group; background-color:#810C16;"><span
+                                                                                                            style="display:table-row;background-color:#810C16;">
+                                                                                                            <!-- TD copy -->
+                                                                                                            <span
+                                                                                                                style="display:table-cell; vertical-align:middle;background-color:#810C16;"><span
+                                                                                                                    style="display:table; background-color:#810C16; border-collapse:separate;">
+                                                                                                                    <span
+                                                                                                                        style="display:table-row-group; background-color:#810C16;">
+                                                                                                                        <span
+                                                                                                                            style="display:table-row; background-color:#810C16;">
+                                                                                                                            <span
+                                                                                                                                style="padding-left:0px; padding-right:0px; padding-top:0px; padding-bottom:0px; background-color:#810C16; font-size:14px; vertical-align: middle; line-height:34px; mso-text-raise: 12px; white-space:nowrap; display: table-cell;">
+                                                                                                                                <font
+                                                                                                                                    style="color: #ffffff; font-family:Arial,Helvetica,sans-serif; font-size:14px; font-weight:bold;">
+                                                                                                                                    <span
+                                                                                                                                        style="display:block; width:100%; text-align:left;">Join
+                                                                                                                                        forces
+                                                                                                                                        with
+                                                                                                                                        NUCALA&nbsp;&nbsp;</span>
+                                                                                                                                </font>
+                                                                                                                            </span>
+                                                                                                                        </span>
+                                                                                                                    </span>
+                                                                                                                </span>
+                                                                                                            </span>
+                                                                                                            <!-- TD ico -->
+                                                                                                            <span
+                                                                                                                style="display:table-cell; vertical-align:middle; background-color:#810C16;"><span
+                                                                                                                    style="display:table; background-color:#810C16; border-collapse:separate;">
+                                                                                                                    <span
+                                                                                                                        style="display:table-row-group;">
+                                                                                                                        <span
+                                                                                                                            style="display:table-row;">
+                                                                                                                            <span
+                                                                                                                                style="padding-left:0px; padding-right:0px; padding-top:0px; padding-bottom:0px; background-color:#810C16; vertical-align:middle; width:25px; line-height:1px; display:table-cell;"><img
+                                                                                                                                    width="25"
+                                                                                                                                    border="0"
+                                                                                                                                    src="https://a-cf65.gskstatic.com/content/dam/campaigns/pharma/us/mass/22780864/ctaArrownew.png"
+                                                                                                                                    alt="arrow_icon"
+                                                                                                                                    style="display:block; outline-style:none; text-decoration:none; border-style:none; -ms-interpolation-mode:bicubic;  vertical-align: middle; background-color:#810C16;"></span>
+                                                                                                                        </span>
+                                                                                                                    </span>
+                                                                                                                </span>
+                                                                                                            </span>
+                                                                                                        </span>
+                                                                                                    </span>
+                                                                                                </span></a>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <!-- <![endif]-->
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td class="reduce_3" bgcolor="#ffffff" width="3%"
+                                                style="color:#464646; font-family: Arial, Helvetica, sans-serif; font-size:14px; line-height:18px; font-weight:normal; padding-bottom: 10px; padding-right:10px; padding-top:15px;"
+                                                align="left" valign="top"><span class="hidden">&nbsp;</span>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td bgcolor="#ffffff" style="font-size:1px; line-height:1px;" height="30">&nbsp;</td>
+                </tr>
+
+                <tr>
+                    <td class="setPaddingblk3" align="left" bgcolor="#ffffff"
+                        style="padding-left:25px; padding-right:25px;">
+                        <table cellpadding="0" cellspacing="0" border="0" width="100%"
+                            class="inv-on-mobile11 m_ful_mobile">
+                            <tbody>
+
+                                <tr>
+                                    <td style="background-color:#ffffff;">
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%"
+                                            style="background-color:#ffffff;">
+                                            <tbody>
+
+                                                <tr>
+                                                    <td align="left" valign="top">
+                                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                                            <tbody>
+
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-family: Arial, Helvetica, sans-serif;font-size:10px;font-weight:normal;color:#333333;line-height:14px;">
+                                                                        ED=emergency department; FEV<sub>1</sub>=forced
+                                                                        expiratory volume in 1 second; FVC=forced vital
+                                                                        capacity; ICS=inhaled corticosteroid;
+                                                                        IgE=immunoglobulin E; LABA=long-acting
+                                                                        beta<sub>2</sub>-agonist; OCS=oral
+                                                                        corticosteroid; SCIT=subcutaneous immunotherapy;
+                                                                        SEA=severe eosinophilic asthma.
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="m_30"
+                                                                        style="font-size:1px; line-height:1px;"
+                                                                        height="25">&nbsp;</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td id="below"
+                                                                        style="font-family:Arial, Helvetica, sans-serif;font-size:14px;font-weight: bold;color: #690813;line-height:19px;">
+                                                                        <a name="below" jumpthis="below"
+                                                                            style="color: #690813;text-decoration: none;">IMPORTANT
+                                                                            SAFETY INFORMATION</a>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-size:1px; line-height:1px;"
+                                                                        height="17">&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;font-weight: bold;color:#690813;line-height:16px;">
+                                                                        CONTRAINDICATIONS
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-size:1px; line-height:1px;"
+                                                                        height="17">&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;font-weight:normal;color:#333333;padding-bottom: 0px;line-height:16px;">
+                                                                        NUCALA should not be administered to patients
+                                                                        with a history of hypersensitivity to
+                                                                        mepolizumab or excipients in the formulation.
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-size:1px; line-height:1px;"
+                                                                        height="15">&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;font-weight:bold;color:#690813;line-height:16px;">
+                                                                        WARNINGS AND PRECAUTIONS
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-size:1px; line-height:1px;"
+                                                                        height="15">&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;font-weight: bold;color:#333333;line-height:16px;">
+                                                                        Hypersensitivity Reactions
+                                                                        <br>
+                                                                        <span
+                                                                            style="font-family: Arial, Helvetica, sans-serif;font-size:12px;color:#333333;line-height:16px;font-weight: normal;">
+                                                                            Hypersensitivity reactions (eg, anaphylaxis,
+                                                                            angioedema, bronchospasm, hypotension,
+                                                                            urticaria, rash) have occurred with NUCALA.
+                                                                            These reactions generally occur within hours
+                                                                            of administration but can have a delayed
+                                                                            onset (ie, days). If a hypersensitivity
+                                                                            reaction occurs, discontinue NUCALA.
+                                                                        </span>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-size:15px">&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;font-weight: bold;color:#333333;line-height:16px;">
+                                                                        Acute Asthma Symptoms or Deteriorating Disease
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;color:#333333;line-height:16px;">
+                                                                        NUCALA should not be used to treat acute asthma
+                                                                        symptoms, acute exacerbations, or acute
+                                                                        bronchospasm.
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-size:15px">&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;font-weight: bold;color:#333333;line-height:16px;">
+                                                                        Opportunistic Infections: Herpes Zoster
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;color:#333333;line-height:16px;">
+                                                                        In controlled clinical trials, 2 serious adverse
+                                                                        reactions of herpes zoster occurred with NUCALA
+                                                                        compared to none with placebo. Consider
+                                                                        vaccination if medically appropriate.
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-size:15px">&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;font-weight: bold;color:#333333;line-height:16px;">
+                                                                        Reduction of Corticosteroid Dosage
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;color:#333333;line-height:16px;">
+                                                                        Do not discontinue systemic or inhaled
+                                                                        corticosteroids abruptly upon initiation of
+                                                                        therapy with NUCALA. Decreases in corticosteroid
+                                                                        doses, if appropriate, should be gradual and
+                                                                        under the direct supervision of a physician.
+                                                                        Reduction in corticosteroid dose may be
+                                                                        associated with systemic withdrawal symptoms
+                                                                        and/or unmask conditions previously suppressed
+                                                                        by systemic corticosteroid therapy.
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-size:15px">&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;font-weight: bold;color:#333333;line-height:16px;">
+                                                                        Parasitic (Helminth) Infection
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;color:#333333;line-height:16px;">
+                                                                        Treat patients with pre-existing helminth
+                                                                        infections before initiating therapy with
+                                                                        NUCALA. If patients become infected while
+                                                                        receiving NUCALA and do not respond to
+                                                                        anti-helminth treatment, discontinue NUCALA
+                                                                        until infection resolves.
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-size:15px">&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;font-weight: bold;color:#690813;line-height:16px;">
+                                                                        ADVERSE REACTIONS
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-size:15px">&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;color:#333333;line-height:16px;">
+                                                                        In clinical trials in patients receiving NUCALA,
+                                                                        the most common adverse reactions (≥5%) were
+                                                                        headache, injection site reaction, back pain,
+                                                                        and fatigue. Systemic reactions, including
+                                                                        hypersensitivity, also occurred. Manifestations
+                                                                        included rash, pruritus, headache, myalgia, and
+                                                                        flushing; the majority were experienced the day
+                                                                        of dosing.
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td style="font-size:15px">&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;font-weight: bold;color:#690813;line-height:16px;">
+                                                                        USE IN SPECIFIC POPULATIONS
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-size:15px">&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;font-weight: normal;color:#333333;line-height:16px;">
+                                                                        A pregnancy exposure registry monitors pregnancy
+                                                                        outcomes in women exposed to NUCALA during
+                                                                        pregnancy. To enroll call <a
+                                                                            href="tel:1-877-311-8972"
+                                                                            rel="noopener noreferrer"
+                                                                            style="color:#690813;"><b
+                                                                                style="color:#690813;">1-877-311-8972</b></a>
+                                                                        or visit <a
+                                                                            href="https://mothertobaby.org/ongoing-study/asthma/"
+                                                                            target="_blank"
+                                                                            style="color:#690813;text-decoration:none;"><b>www.mothertobaby.org/asthma</b></a>.
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-size:15px">&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;font-weight: normal;color:#333333;line-height:16px;">
+                                                                        The data on pregnancy exposures are insufficient
+                                                                        to inform on drug-associated risk. Monoclonal
+                                                                        antibodies, such as mepolizumab, are transported
+                                                                        across the placenta in a linear fashion as the
+                                                                        pregnancy progresses; therefore, potential
+                                                                        effects on a fetus are likely to be greater
+                                                                        during the second and third trimesters.
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="m_12a" style="font-size:15px">&nbsp;</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;font-weight:bold;color:#333333;line-height:16px;">
+                                                                        Please see full <a
+                                                                            href="https://gskpro.com/content/dam/global/hcpportal/en_US/Prescribing_Information/Nucala/pdf/NUCALA-PI-PIL-IFU-COMBINED.PDF?cc=em_G3937WCLN11517608&mcm=20039&cid=%%CID%%"
+                                                                            target="_blank"
+                                                                            style="color:#690813;text-decoration:none;">
+                                                                            <font
+                                                                                style="color:#690813;font-weight: bold;">
+                                                                                <u>Prescribing Information</u>
+                                                                            </font>
+                                                                        </a> and <a
+                                                                            href="https://gskpro.com/content/dam/global/hcpportal/en_US/Prescribing_Information/Nucala/pdf/NUCALA-PI-PIL-IFU-COMBINED.PDF?cc=em_LW1TYRB60Q1517609&mcm=20039&cid=%%CID%%#nameddest=PIL"
+                                                                            target="_blank"
+                                                                            style="color:#690813;text-decoration:none;">
+                                                                            <font
+                                                                                style="color:#690813;font-weight: bold;">
+                                                                                <u>Patient Information</u>
+                                                                            </font>
+                                                                        </a> for NUCALA.</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td style="font-size:15px">&nbsp;</td>
+                                                                </tr>
+                                                                %%=IIF(@COStateFlag == 'Y',
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-family: Arial, Helvetica, sans-serif;font-size:12px;font-weight:bold;color:#333333;line-height:16px;">
+                                                                        For WAC pricing information for NUCALA: <a
+                                                                            href="https://assets.gskstatic.com/pharma/us/veeva/NUCALA-WAC.pdf"
+                                                                            target="_blank"
+                                                                            style="color:#690813;text-decoration:none;">
+                                                                            <font
+                                                                                style="color:#333333;font-weight:bold;">
+                                                                                <u>NUCALA WAC</u>
+                                                                            </font>
+                                                                        </a></td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="m_12a" height="22"
+                                        style="font-size:1px;line-height:1px;background-color: #ffffff;">&nbsp;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+
+
+
+                <tr>
+                    <td class="m_p" align="left" valign="top" bgcolor="#535353"
+                        style="padding-left:25px; padding-right:25px;mso-line-height: taro-papo;">
+                        <table bgcolor="#535353" border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tbody>
+
+
+                                <tr>
+                                    <td class="m_12" height="22"
+                                        style="font-size:1px; line-height:1px; background-color: #535353;">&nbsp;</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="setPadding15" align="center" valign="top">
+                                        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tbody>
+
+                                                <tr>
+                                                    <td width="100%" align="left" valign="top"
+                                                        style="line-height:14px;text-align:left;border-collapse:collapse; font-family:Arial, Helvetica, sans-serif;color:#ffffff;font-size: 12px;">
+                                                        This email is intended for US healthcare professionals only.
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td height="15"
+                                                        style="font-size:1px; line-height:1px; background-color: #535353;">
+                                                        &nbsp;</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td width="100%" align="left" valign="top"
+                                                        style="padding:0px; line-height:14px; text-align:left; border-collapse:collapse; font-family:Arial, Helvetica, sans-serif; color:#ffffff; font-size:12px;">
+                                                        Trademarks are owned by or licensed to the GSK group of
+                                                        companies.</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td height="22"
+                                                        style="font-size:1px; line-height:1px; background-color: #535353;">
+                                                        &nbsp;</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="left" valign="middle">
+                                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td width="50" align="left" style="width:50px;"><a
+                                                                            href="https://us.gsk.com/en-us/"
+                                                                            target="_blank"
+                                                                            style="outline-style:none;"><img
+                                                                                style="display:inline-block;border:none;width:50px;"
+                                                                                width="50"
+                                                                                src="https://a-cf65.gskstatic.com/content/dam/campaigns/pharma/us/mass/logo/Image_50_2x.png"
+                                                                                alt="GSK"></a></td>
+                                                                    <td align="left"
+                                                                        style="line-height:16px;text-align:left;border-collapse:collapse;font-family:Arial, Helvetica, sans-serif;color:#ffffff;font-size:12px;padding-left: 15px;">
+                                                                        &copy;﻿2﻿0﻿2﻿2﻿ GSK or licensor.<br>MPLEML220168
+                                                                        November 2022 <br>Produced in USA.</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td height="17"
+                                                        style="font-size:1px; line-height:1px; background-color: #535353;">
+                                                        &nbsp;</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td width="100%" align="left" valign="top"
+                                                        style="line-height:16px; text-align:left; border-collapse:collapse; font-family:Arial, Helvetica, sans-serif; color:#ffffff; font-size:12px;">
+                                                        View our <a href="https://privacy.gsk.com/en-us/privacy-notice/"
+                                                            target="_blank"
+                                                            style="color:#ffffff;text-decoration:none;"><u>Privacy
+                                                                Notice</u></a>.</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td height="30"
+                                                        style="font-size:1px; line-height:1px; background-color: #535353;">
+                                                        &nbsp;</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="setPadding" align="left" valign="top" bgcolor="#E6E5E5"
+                        style="padding-top:30px;padding-bottom: 30px;padding-left:20px;padding-right:20px;line-height: 20px;mso-line-height: taro-papo;">
+                        <!-- BEGIN BODY // -->
+                        <table bgcolor="#E6E5E5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tbody>
+                                <tr>
+                                    <td align="left"
+                                        style="padding:0px;line-height:16px;text-align:left;border-collapse:collapse;font-family:Arial, Helvetica, sans-serif;color:#464646;font-size:12px;">
+                                        If you are not interested in receiving further email communications like this
+                                        one, or if you received this message in error, <a target="_blank"
+                                            href="https://www.contactus.gsk.com/globalsalesoptout.html"
+                                            style="color:#f36633;"><u>unsubscribe</u></a>.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size:1px; line-height:1px;" height="15">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"
+                                        style="padding:0px;line-height:16px;text-align:left;border-collapse:collapse;font-family:Arial, Helvetica, sans-serif;color:#464646;font-size:12px;">
+                                        If you have recently opted out, please keep in mind that it can take up to 10
+                                        days for your name to be removed from the GSK email list.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size:1px; line-height:1px;" height="15">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"
+                                        style="padding:0px;line-height:16px;text-align:left;border-collapse:collapse;font-family:Arial, Helvetica, sans-serif;color:#464646;font-size:12px;">
+                                        Please do not reply to this message as this is an inactive mailbox and your
+                                        message will be automatically deleted. If you have any questions or comments,
+                                        please <a target="_blank" href="https://us.gsk.com/en-us/contact-us/"
+                                            style="color:#f36633;"><u>contact us</u></a>.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size:1px; line-height:1px;" height="15">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"
+                                        style="padding:0px;line-height:16px;text-align:left;border-collapse:collapse;font-family:Arial, Helvetica, sans-serif;color:#464646;font-size:12px;">
+                                        GSK will receive information about you as part of this campaign; please see the
+                                        GSK privacy notice <a target="_blank"
+                                            href="https://privacy.gsk.com/en-us/privacy-notice/"
+                                            style="color:#f36633;"><u>here</u></a>.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size:1px; line-height:1px;" height="15">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"
+                                        style="padding:0px;line-height:16px;text-align:left;border-collapse:collapse;font-family:Arial, Helvetica, sans-serif;color:#464646;font-size:12px;">
+                                        You can also view our <a target="_blank"
+                                            href="https://us.gsk.com/en-us/legal-notices/"
+                                            style="color:#f36633;"><u>Legal Notices</u></a>.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size:1px; line-height:1px;" height="15">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"
+                                        style="padding:0px;line-height:16px;text-align:left;border-collapse:collapse;font-family:Arial, Helvetica, sans-serif;color:#464646;font-size:12px;">
+                                        GSK Response Center, 4&#65279;1&#65279;0 Bl&#65279;ack&#65279;wel&#65279;l
+                                        St&#65279;re&#65279;et, Du&#65279;rh&#65279;am, N&#65279;C
+                                        2&#65279;7&#65279;70&#65279;1
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size:1px; line-height:1px;" height="15">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td align="left"
+                                        style="padding:0px;line-height:16px;text-align:left;border-collapse:collapse;font-family:Arial, Helvetica, sans-serif;color:#464646;font-size:12px;">
+                                        &copy;1&#65279;9&#65279;9&#65279;7-2&#65279;0&#65279;2&#65279;2 GSK. A&#65279;ll
+                                        Ri&#65279;gh&#65279;ts Re&#65279;se&#65279;rv&#65279;ed.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-size:1px; line-height:1px;" height="15">&nbsp;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+
+                <!-- Gmail App Fix -->
+                <tr class="gmail-fix">
+                    <td>
+                        <table cellpadding="0" cellspacing="0" border="0" align="center" width="600"
+                            style="width:600px;">
+                            <tbody>
+                                <tr>
+                                    <td bgcolor="#f8f6f5" cellpadding="0" cellspacing="0" border="0" height="1"
+                                        style="line-height: 1px; min-width: 600px;"><img
+                                            src="https://a-cf5.gskstatic.com/content/dam/campaigns/pharma/test180119/spain/veeva/NP-ES-HVU-EML-200002_trans.png"
+                                            width="600" height="1" style="display: block; "></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <!-- Gmail App Fix End -->
+
+            </tbody>
+        </table>
+        <custom name="opencounter" type="tracking" />
+    </center>
+</body>
+
+</html>
